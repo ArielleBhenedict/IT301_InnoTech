@@ -86,9 +86,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="store2">Store 2</option>
             </select>
         </div>
+
         <div class="profile">
-            <img src="profile-icon.png" alt="Profile" style="width: 30px; height: 30px;">
-        </div>
+            <a href ="">
+            <button>
+            <i class="fas fa-user"></i> Profile
+              </button>
+        </a>
+</div>
     </div>
 
     <div class="content">
@@ -109,10 +114,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </thead>
                 <tbody>
                     <?php foreach ($products as $product): ?>
+                        <!--dito iibahin-->  
                         <tr>
                             <input type="hidden" name="productid[]" value="<?php echo $product['productid']; ?>">
 
-                            <td><input type="text" name="productname[]" value="<?php echo htmlspecialchars($product['productname']); ?>" required></td>
+       <!--dito iibahin-->  <td><input type="text" name="productname[]" value="<?php echo htmlspecialchars($product['productname']); ?>" required></td>
                             <td><input type="text" name="productdescription[]" value="<?php echo htmlspecialchars($product['productdescription']); ?>" required></td>
                             <td><input type="number" name="quantity[]" value="<?php echo htmlspecialchars($product['quantity']); ?>" required></td>
                             <td><input type="number" name="price[]" value="<?php echo htmlspecialchars($product['price']); ?>" required></td>
@@ -157,6 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" name="addProduct">Add Product</button>
         </form>
     </div>
+
 
     <script src="script.js"></script>
 </body>

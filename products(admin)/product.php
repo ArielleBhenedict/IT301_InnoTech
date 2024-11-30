@@ -46,10 +46,6 @@ if (isset($_GET['delete_id'])) {
         <select>
             <option value="Location">Location</option>
             <option value="General Trias">General Trias</option>
-            <option value="Dasmarinas">Dasmarinas</option>
-            <option value="Trece Martires">Trece Martires</option>
-            <option value="Silang">Silang</option>
-            <option value="New York Cubao">New York Cubao</option>
         </select>
     </div>
         <div class="profile">
