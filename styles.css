@@ -1,203 +1,438 @@
+/* General*/
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  background-color: blanchedalmond;
-}
- /*header*/
-
-.headerbody{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background-color:  rgb(21, 14, 10);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d7eef3;
 }
 
-.header-icons {
-  display: flex;
-  position: absolute; 
-  align-items: center;
-  right: 30px; 
-}
- 
-.header-icon {
-  font-size: 24px;
-  padding: 0 10px;
-  cursor: pointer;
+/* Header ng lahat*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f8fa;
+    padding: 15px 30px;
+    border-bottom: 1px solid #b3d6e0;
 }
 
-.logo{
-  position: absolute;
-  left: 30px;
-  top: 10px;
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3b4c5a;
 }
 
-.openbtn {
-  font-size: 20px;
-  position: absolute;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  top: 13px;
-  left: 390px;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-
-#main {
-  transition: margin-left .5s; 
-  padding: 20px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-/* Search Bar */
 .search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  position: absolute;
-  top: 18px;
-  right: 300px;
-  width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 0 20px;
 }
 
-.search-input {
-  width: calc(100% - 40px);
-  padding: 8.8px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px 0 0 4px;
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 15px;
+    width: 30%;
+    margin-right: 13px;
 }
 
-.search-input:focus {
-  outline: none;
-  border: 2px solid rgb(21, 14, 10);
+.search-bar button {
+    background-color: #3b4c5a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-.search-icon {
-  position: absolute;
-  right: -8px;
-  padding: 6px;
-  font-size: 18px;
-  color: white;
-  background-color: rgb(21, 14, 10);
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-}
-
-.search-icon:hover {
-  background-color: #1e90ff;
-}
-
-
- /*login page*/
- .login-container {
-  display: flex;
-}
- .remember-me {
-  position: relative;
-  display: flex;
-  left: 240px;
-  }
-  
-  .remember-me input[type="checkbox"] {
-  margin-right: 10px; 
-  
-  }
-  
-  .intellisearchsign{
-  margin-left: 250px;
-  }
-  
-  .link{
-  margin-left: 300px;
-  }
-  
-  .login-form {
-    display: block;
-      margin-bottom: 10px;
-      color: blanchedalmond;
-      border-radius: 100px;
-      padding: 6px 16px;
-      text-align: center;
-      margin-top: 0px;
-    }
-
-  .login-form-control{
-    height: 60px;
+.location select {
+    padding: 10px;
+    border: 1px solid #b3d6e0;
     border-radius: 10px;
-    margin-left: 250px;
-    border-color: white;
-    }
-  
-  .login-form-control:focus {
-    border: 3px solid;
-    border-color: var(--twitter-color);
-    box-shadow: none;
-  }
-  
-  .top .login-form-control {
-    border-color: rgb(196, 207, 214);
+    background-color: #ffffff;
+}
+
+.cart-profile button {
+    background-color: #3b4c5a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+
+/* Profile section -------------------------------------------------------------------------------------------*/
+.profile-section {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    background-color: #c3d9e0; /* Placeholder for profile image */
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-section h1 {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #3b4c5a;
+}
+
+/* Sections for recent orders and recently visited */
+.recent-orders,
+.recently-visited {
+    padding: 20px 30px;
+    margin: 0 auto 30px;
+    max-width: 1200px;
+}
+
+.recent-orders h2,
+.recently-visited h2 {
+    font-size: 24px;
+    color: #3b4c5a;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #b3d6e0; /* Underline for headings */
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.order-list,
+.visited-list {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.order-card,
+.visited-card {
+    background-color: #abdce6; /* Card background color */
+    width: calc(20% - 16px); /* Adjust to 20% to show 5 items per row with some space */
+    padding: 20px 15px;
+    text-align: center;
     border-radius: 10px;
-    }
-    
-    .top .login-form-control:focus {
-    border: 3px solid;
-    box-shadow: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover effect for order card */
+.order-card:hover, .visited-card:hover,.cart-profile button:hover,.profile-pic:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+    background-color: #9ccde7; /* Optional: change background color on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+
+.product-image {
+    width: 100%;
+    height: 120px;
+    background-color: #e0f0f5; /* Placeholder for product image */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.order-card p,
+.visited-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #3b4c5a; /* Text color for product details */
+}
+
+.order-card button,
+.visited-card button {
+    background-color: #57a3bc; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.order-card button:hover,
+.visited-card button:hover {
+    background-color: #4d8ca1; /* Slightly darker on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-list,
+    .visited-list {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .login-btn {
-      height: 45px;
-      width: 160px;
-      background-color: antiquewhite;
-      font-size: 20px;
-      margin-left:320px;
-      border-radius: 10px;
-      border-color:  rgb(250, 241, 230);
-      cursor: pointer;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-      }
-      
-      .login-btn:hover{
-        border-color: antiquewhite;
-        background-color: rgb(250, 241, 230);
-      }
-      .login-logo {
-        margin-right: 30px; /* Adjust space between image and form */
-      }
-      
-      .login-logo img {
-        width: 110%;
-        height: 100vh; /* Full viewport height */
-        object-fit: cover; /* Ensures the image scales without distortion */
-        display: block; /* Removes any inline spacing */
-      }
+    .order-card,
+    .visited-card {
+        width: 90%;
+    }
+}
 
-      .signup-btn {
-        height: 45px;
-        width: 160px;
-        background-color: antiquewhite;
-        font-size: 20px;
-        margin-left:330px;
-        border-radius: 10px;
-        border-color:  rgb(250, 241, 230);
-        cursor: pointer;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .signup:hover{
-          border-color: antiquewhite;
-          background-color: rgb(250, 241, 230);
-        }
- 
+/* Cart section -------------------------------------------------------------------------------------------*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cart_dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-section {
+    flex: 0 0 70%; /* 70% width for the product section */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #abdce6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 290px;
+}
+
+/* Hover effect for order card */
+.product-card:hover, .preorder-button:hover, .cart-profile button:hover{
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+    background-color: #9ccde7; /* Optional: change background color on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.product-image {
+    width: 100%;
+    height: 120px;
+    background-color: #e0f0f5;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.quantity-input {
+    margin-top: 10px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+/* Order Summary */
+.order-summary {
+    flex: 0 0 28%; /* 28% width for the order summary */
+    background-color: #f2f8fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h3 {
+    font-size: 18px;
+    color: #3b4c5a;
+    margin-bottom: 10px;
+}
+
+.order-summary p {
+    font-size: 14px;
+    color: #3b4c5a;
+}
+
+.order-summary hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #b3d6e0;
+}
+
+.pickup input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 5px;
+}
+
+.total-summary p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #3b4c5a;
+}
+
+.preorder-button {
+    width: 60%;
+    padding: 18px;
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+
+
+/* Order details pop up -------------------------------------------------------------------------------------------*/
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay */
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 80%;
+    margin: 10% auto;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
+}
+
+/* Modal Body */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-body-left {
+    width: 45%;
+    padding-right: 20px;
+}
+
+.product-image {
+    background-color: #e0f0f5;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    margin: 10px 0;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Modal Body Right */
+.modal-body-right {
+    width: 45%;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.modal-body-right p {
+    margin-bottom: 10px;
+}
+
+.modal-body-right input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+.modal-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirm-order-btn {
+    background-color: #57a3bc;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.confirm-order-btn:hover {
+    background-color: #46a1b3;
+}
+
+/* Open Modal Button */
+#openModalBtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#openModalBtn:hover {
+    background-color: #46a1b3;
+}
