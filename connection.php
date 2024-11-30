@@ -3,7 +3,7 @@
 $hostName = "localhost";
 $dbUser = "root";
 $dbPassword = "";
-$dbName = "innotech"; // Change to the new database name
+$dbName = "Users"; // Change to the new database name
 
 // Try to connect using PDO
 try {
