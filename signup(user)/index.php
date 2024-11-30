@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Signup Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="signup-container">
-        <h1>Create an Account</h1>
-        <form id="signup-form" action="signup.php" method="post">
-            <input type="text" name="fullname" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit" name="signup">Sign Up</button>
+        <form action="signup.php" method="POST">
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" id="fullname" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" required>
+            <input type="submit" value="Signup" name="signup">
         </form>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
-        <?php if (!empty($errorMessage)): ?>
-            <div class="alert"><?php echo $errorMessage; ?></div>
-        <?php endif; ?>
     </div>
 
     <script src="script.js"></script>
