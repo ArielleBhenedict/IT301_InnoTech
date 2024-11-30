@@ -1,0 +1,36 @@
+/* Basic Styling for First Page */
+.first-page {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    margin: 50px auto;
+    width: 300px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#close-popup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
