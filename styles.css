@@ -21,6 +21,10 @@ body {
     color: #3b4c5a;
 }
 
+.logo img {
+    height: 35px;
+}
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -212,7 +216,7 @@ body {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    height: 290px;
+    height: 325px;
 }
 
 /* Hover effect for order card */
@@ -222,6 +226,16 @@ body {
     background-color: #9ccde7; /* Optional: change background color on hover */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
+/* Smooth transition when removing product */
+.product-card {
+    transition: opacity 0.3s ease-out;
+}
+
+/* After clicking the delete button, fade out the product card */
+.product-card.removed {
+    opacity: 0;
+}
+
 
 .product-image {
     width: 100%;
@@ -305,28 +319,28 @@ body {
 
 /* Order details pop up -------------------------------------------------------------------------------------------*/
 
-/* Modal Styles */
+/* Modal styling */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Overlay */
-    padding: 20px;
+    overflow: auto; /* Allow scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
 }
 
+/* Modal Content */
 .modal-content {
     background-color: #fff;
-    width: 80%;
-    margin: 10% auto;
-    border-radius: 12px;
+    margin: 5% auto; /* Centering modal */
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 70%; /* Adjust the width to fit your design */
+    max-height: 80%; /* Max height for modal to allow scrolling */
+    overflow-y: auto; /* Scrollable if content exceeds */
 }
 
 /* Modal Header */
@@ -334,24 +348,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
 }
 
 .modal-header h2 {
-    font-size: 24px;
-    color: #333;
+    margin: 0;
 }
 
+/* Close Button */
 .close-btn {
-    color: #aaa;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 25px;
     cursor: pointer;
-}
-
-.close-btn:hover {
-    color: black;
 }
 
 /* Modal Body */
@@ -361,66 +367,89 @@ body {
     margin-top: 20px;
 }
 
+/* Left side (Product details) */
 .modal-body-left {
-    width: 45%;
-    padding-right: 20px;
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    padding-right: 10px;
 }
 
+.modal-product {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
 .product-image {
+    width: 180px;
+    height: 180px;
     background-color: #e0f0f5;
-    height: 150px;
-    margin-bottom: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
 }
 
 .product-info p {
-    margin: 10px 0;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #3b4c5a;
 }
 
-.quantity-input {
-    width: 60px;
-    padding: 5px;
-    text-align: center;
-}
-
-/* Modal Body Right */
+/* Right side (Customer Details) */
 .modal-body-right {
-    width: 45%;
-    padding-left: 20px;
-    border-left: 2px solid #ddd;
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 
-.modal-body-right p {
+.customer-details p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Scrollable Customer Details */
+.scrollable-customer-details {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable scroll if content is long */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.scrollable-customer-details h3 {
+    font-size: 16px;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.modal-body-right input {
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.scrollable-customer-details p {
+    font-size: 14px;
+    color: #555;
 }
 
-/* Footer */
+/* Modal Footer */
 .modal-footer {
     margin-top: 20px;
     text-align: center;
 }
 
+/* Confirm Button */
 .confirm-order-btn {
+    padding: 10px 20px;
     background-color: #57a3bc;
     color: white;
-    padding: 12px 25px;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .confirm-order-btn:hover {
-    background-color: #46a1b3;
+    background-color: #4d8a99;
 }
+
 
 /* Open Modal Button */
 #openModalBtn {

@@ -29,7 +29,7 @@ if (isset($_GET['delete_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Management</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="header">
@@ -40,13 +40,18 @@ if (isset($_GET['delete_id'])) {
             <a href="#">Inventory</a>
             <a href="#">Themes</a>
         </nav>
+
         <div class="location">
-            <select>
-                <option value="default">Location</option>
-                <option value="store1">Store 1</option>
-                <option value="store2">Store 2</option>
-            </select>
-        </div>
+        <i class="fas fa-map-marker-alt"></i>
+        <select>
+            <option value="Location">Location</option>
+            <option value="General Trias">General Trias</option>
+            <option value="Dasmarinas">Dasmarinas</option>
+            <option value="Trece Martires">Trece Martires</option>
+            <option value="Silang">Silang</option>
+            <option value="New York Cubao">New York Cubao</option>
+        </select>
+    </div>
         <div class="profile">
             <img src="profile-icon.png" alt="Profile" style="width: 30px; height: 30px;">
         </div>

@@ -10,7 +10,10 @@
 <body>
 
 <header class="header">
-    <div class="logo">LOGO</div>
+    <a href="home.php" class="logo">
+        <img src="pansamantala.png" alt="Logo" class="logo-image">
+    </a>
+
     <div class="search-bar">
         <input type="text" placeholder="Search">
         <button>Search</button>
@@ -44,13 +47,22 @@
     <section class="product-section">
         <div class="product-list">
             <?php
-            for ($i = 0; $i < 8; $i++) {
+            // Example dynamic product data with prices
+            $products = [
+                ["name" => "Product A", "price" => 20],
+                ["name" => "Product B", "price" => 30],
+                ["name" => "Product C", "price" => 25],
+                ["name" => "Product D", "price" => 15],
+                // Add more products here as needed
+            ];
+
+            foreach ($products as $product) {
                 echo '
-                    <div class="product-card">
+                    <div class="product-card" data-price="' . $product['price'] . '">
                         <div class="product-image"></div>
-                        <p>Product Name</p>
-                        <p>No. of Stocks</p>
-                        <p>Price</p>
+                        <p>' . $product['name'] . '</p>
+                        <p>No. of Stocks: 15</p>
+                        <p>Price: $' . $product['price'] . '</p>
                         <button class="delete-button">Delete</button>
                         <input type="number" min="0" value="0" class="quantity-input">
                     </div>
@@ -68,20 +80,19 @@
         <hr>
         <h3>Receipt</h3>
         <div class="receipt">
-            <p>Items</p>
-            <p>Price</p>
+            <p id="items">Items</p>
+            <p id="price">Price</p>
         </div>
         <hr>
         <div class="pickup">
             <h3>Pick-up Date & Time</h3>
-            <input type="date">
-            <input type="time">
+            <input type="date" id="pickup-date">
+            <input type="time" id="pickup-time">
         </div>
         <div class="total-summary">
-            <p>Total Quantity</p>
-            <p>Total Amount</p>
+            <p id="total-quantity">Total Quantity</p>
+            <p id="total-amount">Total Amount</p>
         </div>
-        <!-- Button to open the modal -->
         <button class="preorder-button" id="openModalBtn">Pre-Order</button>
     </aside>
 </main>
@@ -95,66 +106,140 @@
         </div>
         <div class="modal-body">
             <div class="modal-body-left">
-                <div class="product-image"></div>
-                <div class="product-info">
-                    <p><strong>Product Name:</strong> Example Product</p>
-                    <p><strong>No. of Stocks:</strong> 15</p>
-                    <p><strong>Quantity:</strong> <input type="number" min="1" value="1" class="quantity-input"></p>
-                    <p><strong>Price:</strong> $20</p>  
-                </div>
+                <!-- Dynamic product details will be inserted here -->
+                <div id="modal-product-list"></div>
             </div>
             <div class="modal-body-right">
-                <p><strong>Customer Name:</strong> Lebron James</p>
-                <p><strong>Contact Number:</strong> 123-456-789</p>
-                <p><strong>Location:</strong> General Trias</p>
-                <p><strong>Pick-up Date & Time:</strong> <input type="date"> <input type="time"></p>
-                <p><strong>Total Quantity:</strong> 1</p>
-                <p><strong>Total Amount:</strong> $20</p>
+                <div class="customer-details">
+                    <p><strong>Customer Name:</strong> Lebron James</p>
+                    <p><strong>Contact Number:</strong> 123-456-789</p>
+                    <p><strong>Location:</strong> General Trias</p>
+                    <p><strong>Pick-up Date & Time:</strong> <span id="modal-pickup-date"></span> <span id="modal-pickup-time"></span></p>
+                    <p><strong>Total Quantity:</strong> <span id="modal-total-quantity"></span></p>
+                    <p><strong>Total Amount:</strong> $<span id="modal-total-amount"></span></p>
+                </div>
+                <!-- Scrollable customer details area -->
+                
             </div>
         </div>
         <div class="modal-footer">
-            <!-- Confirm order button, triggers redirect -->
             <button class="confirm-order-btn" id="confirmOrderBtn">Confirm Order</button>
         </div>
     </div>
 </div>
 
 
-
 <script>
-// Get the modal element
-var modal = document.getElementById("orderModal");
+document.addEventListener("DOMContentLoaded", function () {
+    const preorderButton = document.getElementById("openModalBtn");
+    const modal = document.getElementById("orderModal");
+    const modalProductList = document.getElementById("modal-product-list");
+    const totalQuantityElem = document.getElementById("total-quantity");
+    const totalAmountElem = document.getElementById("total-amount");
+    const itemsElem = document.getElementById("items");
+    const priceElem = document.getElementById("price");
 
-// Get the button that opens the modal
-var openModalBtn = document.getElementById("openModalBtn");
+    // Function to update total price and quantity
+    function updateCart() {
+        let totalQuantity = 0;
+        let totalPrice = 0;
+        let cartItems = '';
+        let productsInCart = [];
 
-// Get the <span> element that closes the modal
-var closeBtn = document.getElementsByClassName("close-btn")[0];
+        document.querySelectorAll('.product-card').forEach(function(card) {
+            const quantityInput = card.querySelector(".quantity-input");
+            const productPrice = parseFloat(card.getAttribute('data-price'));
+            const productName = card.querySelector("p").innerText;
+            const productImage = card.querySelector(".product-image").style.backgroundImage;
+            const quantity = parseInt(quantityInput.value);
 
-// Get the confirm order button
-var confirmOrderBtn = document.getElementById("confirmOrderBtn");
+            if (quantity > 0) {
+                totalQuantity += quantity;
+                totalPrice += productPrice * quantity;
+                cartItems += `<p>${productName} - Quantity: ${quantity} - $${productPrice}</p>`;
+                productsInCart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity,
+                    image: productImage,
+                    total: productPrice * quantity
+                });
+            }
+        });
 
-// When the user clicks the button, open the modal
-openModalBtn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+        totalQuantityElem.innerText = `Total Quantity: ${totalQuantity}`;
+        totalAmountElem.innerText = `Total Amount: $${totalPrice.toFixed(2)}`;
+        itemsElem.innerHTML = cartItems;
+        priceElem.innerText = `$${totalPrice.toFixed(2)}`;
+        
+        return productsInCart;
     }
-}   
 
-// When the user clicks the confirm order button, redirect to order_details.php
-confirmOrderBtn.onclick = function() { 
+    // Update cart on quantity change
+    document.querySelectorAll(".quantity-input").forEach(input => {
+        input.addEventListener('input', updateCart);
+    });
 
-    modal.style.display = "none";
-    window.location.href = "cart.php"; // Replace with your actual order details page
-}
+    // When the Pre-Order button is clicked, show the modal with updated values
+    preorderButton.addEventListener('click', function() {
+        const productsInCart = updateCart(); // Get updated product info from cart
+        const modalProductList = document.getElementById("modal-product-list");
+
+        // Clear previous products in modal
+        modalProductList.innerHTML = '';
+
+        // Populate modal with specific product details
+        productsInCart.forEach(function(product) {
+            const productElement = document.createElement("div");
+            productElement.classList.add("modal-product");
+
+            productElement.innerHTML = `
+                <div class="product-image" style="background-image: ${product.image};"></div>
+                <div class="product-info">
+                    <p><strong>Product Name:</strong> ${product.name}</p>
+                    <p><strong>No. of Stocks:</strong> 15</p>
+                    <p><strong>Quantity:</strong> ${product.quantity}</p>
+                    <p><strong>Price:</strong> $${product.price}</p>
+                    <p><strong>Total:</strong> $${product.total}</p>
+                </div>
+            `;
+
+            modalProductList.appendChild(productElement);
+        });
+
+        // Set pickup date and time
+        let modalPickupDate = document.getElementById('pickup-date').value;
+        let modalPickupTime = document.getElementById('pickup-time').value;
+        document.getElementById('modal-pickup-date').innerText = modalPickupDate;
+        document.getElementById('modal-pickup-time').innerText = modalPickupTime;
+
+        // Update total quantity and amount
+        document.getElementById('modal-total-quantity').innerText = totalQuantityElem.innerText;
+        document.getElementById('modal-total-amount').innerText = totalAmountElem.innerText;
+
+        // Show the modal
+        modal.style.display = "block";
+    });
+
+    // Modal close functionality
+    document.querySelector(".close-btn").addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // Close modal when clicking outside the modal
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Confirm order action
+    document.getElementById('confirmOrderBtn').addEventListener('click', function() {
+        alert("Order Confirmed!");  // Redirect to order confirmation page or perform other actions.
+        modal.style.display = "none";
+    });
+
+    // Initialize cart
+    updateCart();
+});
 </script>

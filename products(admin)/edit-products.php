@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Products & Categories</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
     <div class="header">
@@ -144,6 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="edit-products.php" method="post">
             <input type="text" name="productName" placeholder="Product Name" required>
             <input type="text" name="productDescription" placeholder="Product Description" required>
+            <label for="product-image">Product Image</label>
+            <input type="file" id="product-image" accept="image/*" required>
             <input type="number" name="productStocks" placeholder="Quantity" required>
             <input type="number" name="productPrice" placeholder="Price" required>
             <select name="categoryName" required>

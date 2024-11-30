@@ -11,7 +11,9 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">LOGO</div>
+    <a href="home.php" class="logo">
+        <img src="pansamantala.png" alt="Logo" class="logo-image">
+    </a>
         <div class="search-bar">
             <input type="text" placeholder="Search">
             <button>Search</button>
