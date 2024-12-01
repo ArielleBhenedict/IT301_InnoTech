@@ -1,0 +1,471 @@
+/* General*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d7eef3;
+}
+
+/* Header ng lahat*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f8fa;
+    padding: 15px 30px;
+    border-bottom: 1px solid #b3d6e0;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3b4c5a;
+}
+
+.logo img {
+    height: 35px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 15px;
+    width: 30%;
+    margin-right: 13px;
+}
+
+.search-bar button {
+    background-color: #3b4c5a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.location select {
+    padding: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.cart-profile button {
+    background-color: #3b4c5a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+
+/* Profile section -------------------------------------------------------------------------------------------*/
+.profile-section {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    background-color: #c3d9e0; /* Placeholder for profile image */
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-section h1 {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #3b4c5a;
+}
+
+/* Sections for recent orders and recently visited */
+.recent-orders,
+.recently-visited {
+    padding: 20px 30px;
+    margin: 0 auto 30px;
+    max-width: 1200px;
+}
+
+.recent-orders h2,
+.recently-visited h2 {
+    font-size: 24px;
+    color: #3b4c5a;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #b3d6e0; /* Underline for headings */
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.order-list,
+.visited-list {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.order-card,
+.visited-card {
+    background-color: #abdce6; /* Card background color */
+    width: calc(20% - 16px); /* Adjust to 20% to show 5 items per row with some space */
+    padding: 20px 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    justify-content: center; /* Centers items vertically */
+    align-items: center;
+}
+
+/* Hover effect for order card */
+.order-card:hover, .visited-card:hover,.cart-profile button:hover,.profile-pic:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+    background-color: #9ccde7; /* Optional: change background color on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+
+.product-image {
+    width: 100%;
+    height: 120px;
+    background-color: #e0f0f5; /* Placeholder for product image */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.order-card p,
+.visited-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #3b4c5a; /* Text color for product details */
+}
+
+.order-card button,
+.visited-card button {
+    background-color: #57a3bc; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.order-card button:hover,
+.visited-card button:hover {
+    background-color: #4d8ca1; /* Slightly darker on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-list,
+    .visited-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-card,
+    .visited-card {
+        width: 90%;
+    }
+}
+
+/* Cart section -------------------------------------------------------------------------------------------*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cart_dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-section {
+    flex: 0 0 70%; /* 70% width for the product section */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #abdce6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 325px;
+}
+
+/* Hover effect for order card */
+.product-card:hover, .preorder-button:hover, .cart-profile button:hover{
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+    background-color: #9ccde7; /* Optional: change background color on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+/* Smooth transition when removing product */
+.product-card {
+    transition: opacity 0.3s ease-out;
+}
+
+/* After clicking the delete button, fade out the product card */
+.product-card.removed {
+    opacity: 0;
+}
+
+
+.product-image {
+    width: 100%;
+    height: 120px;
+    background-color: #e0f0f5;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.quantity-input {
+    margin-top: 10px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
+
+/* Order Summary */
+.order-summary {
+    flex: 0 0 28%; /* 28% width for the order summary */
+    background-color: #f2f8fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h3 {
+    font-size: 18px;
+    color: #3b4c5a;
+    margin-bottom: 10px;
+}
+
+.order-summary p {
+    font-size: 14px;
+    color: #3b4c5a;
+}
+
+.order-summary hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #b3d6e0;
+}
+
+.pickup input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 5px;
+}
+
+.total-summary p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #3b4c5a;
+}
+
+.preorder-button {
+    width: 60%;
+    padding: 18px;
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+
+
+/* Order details pop up -------------------------------------------------------------------------------------------*/
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Allow scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Centering modal */
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%; /* Adjust the width to fit your design */
+    max-height: 80%; /* Max height for modal to allow scrolling */
+    overflow-y: auto; /* Scrollable if content exceeds */
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Modal Body */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Left side (Product details) */
+.modal-body-left {
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    padding-right: 10px;
+}
+
+.modal-product {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.product-image {
+    width: 180px;
+    height: 180px;
+    background-color: #e0f0f5;
+    margin-right: 15px;
+    margin-left: 15px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.product-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #3b4c5a;
+}
+
+/* Right side (Customer Details) */
+.modal-body-right {
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+.customer-details p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Scrollable Customer Details */
+.scrollable-customer-details {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable scroll if content is long */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.scrollable-customer-details h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.scrollable-customer-details p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Modal Footer */
+.modal-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Confirm Button */
+.confirm-order-btn {
+    padding: 10px 20px;
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-order-btn:hover {
+    background-color: #4d8a99;
+}
+
+
+/* Open Modal Button */
+#openModalBtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#openModalBtn:hover {
+    background-color: #46a1b3;
+}

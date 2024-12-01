@@ -1,0 +1,296 @@
+/* General Styles */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e7f4f8;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px; /* Added more padding for a spacious look */
+    background: linear-gradient(135deg, #16314f, #8fc1f6); /* Gradient for more depth */
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a modern feel */
+    border-radius: 2px; /* Rounded corners for a smoother look */
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.menu {
+    display: flex;
+    gap: 20px; /* Added gap between menu items */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover,.location:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.menu a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Content */
+.content {
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007bff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+/* Category List */
+#product-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow effect */
+}
+/* General styling for form elements */
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focus effect for textboxes */
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #86c2ff;
+    background-color: #fefefe;
+    outline: none;
+}
+
+/* Styling for select dropdown */
+select {
+    -webkit-appearance: none;  /* Remove default arrow */
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px;  /* Space for the custom dropdown arrow */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    background-image: url('data:image/svg+xml;base64,...'); /* Base64 encoded custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Custom dropdown arrow */
+select:focus {
+    border-color: #86c2ff;
+    background-color: #fefefe;
+    outline: none;
+}
+
+/* Styling for the wrapper of the input fields */
+td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Optional: Add hover effect on rows */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add a subtle shadow effect to the input fields */
+input[type="text"], input[type="number"], select {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Label styling */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Custom dropdown arrow for select elements */
+select {
+    background-image: url('data:image/svg+xml;base64,...'); /* Use your own custom arrow here */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+
+
+.location select {
+    padding: 10px;
+    border: 1px solid #b3d6e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between product cards */
+}
+
+.product-card {
+    width: calc(25% - 20px); /* 4 items per row on larger screens */
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+/* Product Form */
+.product-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.product-actions {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #d0e7ff; /* Super light blue */
+    color: #333;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+button:hover {
+    background-color: #a6c9ff; /* Slightly darker light blue */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Enhance shadow */
+}
+
+.product-actions input,
+.product-actions select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.product-actions button {
+    padding: 12px 18px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-actions button:hover {
+    background-color: #218838;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Save Button */
+.save-btn {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background-color: #0b4582;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.product-card img.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+.save-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px); /* 2 items per row on smaller screens */
+    }
+
+    .product-form {
+        width: 90%;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
