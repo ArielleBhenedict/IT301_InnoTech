@@ -1,10 +1,15 @@
-document.getElementById('login-btn').addEventListener('click', function() {
-    document.getElementById('login-popup').style.display = 'block';
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.getElementById("login-btn");
+    const loginPopup = document.getElementById("login-popup");
 
-// Close popup when clicking outside of it
-window.onclick = function(event) {
-    if (event.target === document.getElementById('login-popup')) {
-        document.getElementById('login-popup').style.display = 'none';
-    }
-};
+    loginBtn.addEventListener("click", () => {
+        loginPopup.style.display = "block";
+    });
+
+    // Close popup when clicking outside of it
+    loginPopup.addEventListener("click", (event) => {
+        if (event.target === loginPopup) {
+            loginPopup.style.display = "none";
+        }
+    });
+});
