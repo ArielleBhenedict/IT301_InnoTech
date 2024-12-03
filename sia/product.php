@@ -63,6 +63,10 @@ if (isset($_GET['delete_id'])) {
 
     <div class="content">
         <h2>Products</h2>
+         <!-- Edit Button -->
+         <div class="edit-section">
+            <a href="edit-products.php" class="edit-btn">Manage Products & Categories</a>
+        </div>
         <div class="product-container">
             <div class="product-list">
                 <?php foreach ($products as $product): ?>
@@ -81,11 +85,6 @@ if (isset($_GET['delete_id'])) {
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
-
-        <!-- Edit Button -->
-        <div class="edit-section">
-            <a href="edit-products.php" class="edit-btn">Manage Products & Categories</a>
         </div>
     </div>
 

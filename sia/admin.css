@@ -2,22 +2,21 @@
 
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #e7f4f8;
+    font-family: Arial, sans-serif;
+    background-color: #d7eef3;
 }
 
+/* Header ng lahat*/
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* Added more padding for a spacious look */
-    background: linear-gradient(135deg, #16314f, #8fc1f6); /* Gradient for more depth */
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a modern feel */
-    border-radius: 2px; /* Rounded corners for a smoother look */
+    background-color: #f2f8fa;
+    padding: 15px 30px;
+    border-bottom: 1px solid #b3d6e0;
 }
+
 
 .header h1 {
     font-size: 24px;
@@ -32,7 +31,7 @@ body {
 }
 
 .menu a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -85,7 +84,7 @@ h3 {
 }
 /* General styling for form elements */
 input[type="text"], input[type="number"], select {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin: 5px 0 15px 0;
     border: 2px solid #ccc;
@@ -132,6 +131,7 @@ td {
     vertical-align: middle;
 }
 
+
 /* Optional: Add hover effect on rows */
 tr:hover {
     background-color: #f1f1f1;
@@ -169,16 +169,18 @@ select {
 .product-cards {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px; /* Space between product cards */
 }
 
 .product-card {
-    width: calc(25% - 20px); /* 4 items per row on larger screens */
+    width: 250px; /* 4 items per row on larger screens */
     padding: 15px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
 }
 
 .product-card:hover {
@@ -243,6 +245,12 @@ button:hover {
     background-color: #218838;
     transform: translateY(-2px); /* Slight lift effect */
 }
+.product-card img.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Space between image and text */
+}
 
 /* Save Button */
 .save-btn {
@@ -256,12 +264,7 @@ button:hover {
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.product-card img.product-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px; /* Space between image and text */
-}
+
 
 
 .delete-btn {
