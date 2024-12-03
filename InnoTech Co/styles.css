@@ -70,6 +70,7 @@ body {
 
 
 /* Profile section -------------------------------------------------------------------------------------------*/
+/* Profile section */
 .profile-section {
     text-align: center;
     margin: 40px auto;
@@ -78,7 +79,7 @@ body {
 .profile-pic {
     width: 150px;
     height: 150px;
-    background-color: #c3d9e0; /* Placeholder for profile image */
+    background-color: #c3d9e0;
     border-radius: 50%;
     margin: 0 auto;
     display: flex;
@@ -92,12 +93,52 @@ body {
     color: #3b4c5a;
 }
 
+/* Tabs Section */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-btn {
+    background-color: #57a3bc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tab-btn:hover {
+    background-color: #4d8ca1;
+}
+
+.tab-btn.active {
+    background-color: #3b4c5a;
+}
+
+.tab-content {
+    display: none;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    overflow: auto;  /* Allows scrolling if content overflows */
+}
+
+.tab-content.active {
+    display: block;
+}
+
 /* Sections for recent orders and recently visited */
 .recent-orders,
 .recently-visited {
     padding: 20px 30px;
     margin: 0 auto 30px;
     max-width: 1200px;
+    box-sizing: border-box;
 }
 
 .recent-orders h2,
@@ -105,7 +146,7 @@ body {
     font-size: 24px;
     color: #3b4c5a;
     margin-bottom: 20px;
-    border-bottom: 2px solid #b3d6e0; /* Underline for headings */
+    border-bottom: 2px solid #b3d6e0;
     padding-bottom: 5px;
     text-align: left;
 }
@@ -120,31 +161,30 @@ body {
 
 .order-card,
 .visited-card {
-    background-color: #abdce6; /* Card background color */
-    width: calc(20% - 16px); /* Adjust to 20% to show 5 items per row with some space */
+    background-color: #abdce6;
+    width: calc(20% - 16px);
     padding: 20px 15px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Aligns children vertically */
-    justify-content: center; /* Centers items vertically */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 20px; /* Space between cards */
 }
 
-/* Hover effect for order card */
-.order-card:hover, .visited-card:hover,.cart-profile button:hover,.profile-pic:hover {
-    transform: scale(1.05); /* Slightly enlarge the card */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
-    background-color: #9ccde7; /* Optional: change background color on hover */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+.order-card:hover, .visited-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #9ccde7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
-
 
 .product-image {
     width: 100%;
     height: 120px;
-    background-color: #e0f0f5; /* Placeholder for product image */
+    background-color: #e0f0f5;
     border-radius: 10px;
     margin-bottom: 15px;
 }
@@ -153,12 +193,12 @@ body {
 .visited-card p {
     margin: 5px 0;
     font-size: 14px;
-    color: #3b4c5a; /* Text color for product details */
+    color: #3b4c5a;
 }
 
 .order-card button,
 .visited-card button {
-    background-color: #57a3bc; /* Button color */
+    background-color: #57a3bc;
     color: white;
     border: none;
     padding: 10px;
@@ -170,7 +210,42 @@ body {
 
 .order-card button:hover,
 .visited-card button:hover {
-    background-color: #4d8ca1; /* Slightly darker on hover */
+    background-color: #4d8ca1;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.preparing {
+    color: #f39c12;
+}
+
+.completed {
+    color: #27ae60;
+}
+
+/* Order Card Specific Styles */
+.order-card .order-details {
+    margin-top: 15px;
+}
+
+.order-card .quantity,
+.order-card .total-amount {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3b4c5a;
+}
+
+.order-card .quantity span,
+.order-card .total-amount span {
+    color: #57a3bc;
+}
+
+/* Make the entire body scrollable */
+body {
+    overflow-y: auto;
 }
 
 /* Responsive Design */
@@ -186,6 +261,7 @@ body {
         width: 90%;
     }
 }
+
 
 /* Cart section -------------------------------------------------------------------------------------------*/
 
